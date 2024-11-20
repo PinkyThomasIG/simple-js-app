@@ -1,3 +1,4 @@
+let pokemonRepository = (function () {
 let pokemonList=[
 {
     name:'Bulbasaur',
@@ -52,16 +53,38 @@ for(let i= 0; i < pokemonList.length; i++){
 ); */
 
 // replacing for loop with forEach loop and if statement to iterate array elements 
+// adding IIFE Task: 1.5 plus getAll and add functions
 
+function getAll(){
+    return pokemonList;
+}
+
+function add(pokemon){
+    pokemonList.push(pokemon);
+}
+
+return {
+    add:add,
+    getAll:getAll
+};
+
+}) ();
+
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({name: 'Picassu'});
+console.log(pokemonRepository.getAll());
+
+let pokemons = pokemonRepository.getAll();
 let message = "";
-
-pokemonList.forEach(function(list) {
-    if(list.height>1.5) {
-        message = " Wow you are big";
+pokemons.forEach(function(list) {
+    if(list.height > 1.5) {
+        message = " - Wow! That's big!";
     } else {
         message = "";
     }
-    document.write('<p>' + list.name+ ' '+ ': height(' + list.height + ')' + message + '</p>');
+    document.write(
+        '<p>' + list.name + ' : height (' + list.height + ')' + message
+    );
 }
 
 );
