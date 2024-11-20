@@ -1,16 +1,16 @@
 let pokemonList=[
 {
-    pname:'Bulbasaur',
+    name:'Bulbasaur',
     height:1.7,
     types:['grass', 'poison']
 },
 {
-    pname:'Eve',
+    name:'Eve',
     height:0.8,
     types:['grass', 'poison']
 },
 {
-    pname:'Ivy',
+    name:'Ivy',
     height:1,
     types:['grass', 'poison']
 }
@@ -19,14 +19,16 @@ let pokemonList=[
 
 /* for(let i= 0; i < pokemonList.length; i++){
          document.write(
-             `${pokemonList[i].pname} (height: ${pokemonList[i].height})
+             `${pokemonList[i].name} (height: ${pokemonList[i].height})
             <br>`
         );
      }
 */
 
 
-let message = "";
+// for loop with if statement 
+
+/*  let message = "";
 
 for(let i= 0; i < pokemonList.length; i++){
     if(pokemonList[i].height > 1.5){
@@ -35,8 +37,16 @@ for(let i= 0; i < pokemonList.length; i++){
         message = "";
     }
     document.write(
-        `${pokemonList[i].pname} (height: ${pokemonList[i].height}) 
+        `<p> ${pokemonList[i].name} (height: ${pokemonList[i].height}) 
         ${message} 
-        <br>`
+        </p>`
     );
+} */
+
+// replacing for loop with forEach loop to iterate array elements 
+
+pokemonList.forEach(function(list){
+    document.write('<p>' + list.name + ' ' +':height(' + list.height + ')' + '</p>');
 }
+
+);
