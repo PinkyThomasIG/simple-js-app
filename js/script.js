@@ -45,8 +45,23 @@ for(let i= 0; i < pokemonList.length; i++){
 
 // replacing for loop with forEach loop to iterate array elements 
 
-pokemonList.forEach(function(list){
+/* pokemonList.forEach(function(list){
     document.write('<p>' + list.name + ' ' +':height(' + list.height + ')' + '</p>');
+}
+
+); */
+
+// replacing for loop with forEach loop and if statement to iterate array elements 
+
+let message = "";
+
+pokemonList.forEach(function(list) {
+    if(list.height>1.5) {
+        message = " Wow you are big";
+    } else {
+        message = "";
+    }
+    document.write('<p>' + list.name+ ' '+ ': height(' + list.height + ')' + message + '</p>');
 }
 
 );
