@@ -127,4 +127,13 @@ let pokemonRepository = (function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
       pokemonRepository.addListItem(pokemon);
     });
-  });
+
+    document.body.addEventListener("keyup", (e) => {
+
+      let modalContainer = document.querySelector("#modal-container"); 
+      if(modalContainer.classList.contains("is-visible") && e.key === "Escape") {
+      modalContainer.classList.remove("is-visible"); 
+      }
+    });
+  }); 
+ 
