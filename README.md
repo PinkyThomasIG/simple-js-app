@@ -6,6 +6,6 @@ A small web application with HTML, CSS, and JavaScript that loads data from exte
 
 ## Key Features
 
-Load data from an external source (API)
-View a list of items
-On user action (e.g., by clicking on a list item), view details for that item
+1. Load data from an external source (API)
+2. View a list of items
+3. On user action (e.g., by clicking on a list item), view details for that item
