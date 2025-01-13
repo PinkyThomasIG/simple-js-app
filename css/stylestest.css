@@ -107,3 +107,35 @@
   display: grid;
   text-align: center;
 }
+
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px; /* Space between grid items */
+  padding: 10px;
+}
+
+.pokemon-card {
+  background-color: #f8f9fa; /* Light background for the cards */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.pokemon-card img {
+  max-width: 100px; /* Limit the size of Pokémon images */
+  margin-bottom: 10px;
+}
+
+.pokemon-card h5 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
