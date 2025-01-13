@@ -11,18 +11,29 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    listItem.classList.add("list-group-item");
+    let pokemonGrid = document.querySelector(".pokemon-grid");
+    let gridItem = document.createElement("div");
+    gridItem.classList.add("pokemon-card");
 
-    let button = document.createElement("button");
-    button.innerText = pokemon.name;
-    button.classList.add("btn", "btn-primary");
+    let pokemonImage = document.createElement("img");
+    pokemonImage.setAttribute("src", "placeholder.png"); // Placeholder until details are loaded
+    pokemonImage.classList.add("pokemon-image");
 
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-    button.addEventListener("click", function (event) {
-      pokemonRepository.showDetails(pokemon);
+    let pokemonName = document.createElement("h5");
+    pokemonName.innerText = pokemon.name;
+
+    gridItem.appendChild(pokemonImage);
+    gridItem.appendChild(pokemonName);
+    pokemonGrid.appendChild(gridItem);
+
+    // Load details to update the placeholder image
+    loadDetails(pokemon).then(() => {
+      pokemonImage.setAttribute("src", pokemon.imageUrl);
+    });
+
+    // Add click event to show modal
+    gridItem.addEventListener("click", function () {
+      showDetails(pokemon);
     });
   }
 
@@ -73,7 +84,7 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function () {
+    loadDetails(pokemon).then(function () {
       showModal(pokemon.name, "Height: " + pokemon.height, pokemon.imageUrl);
       $("#pokemonModal").modal("show");
     });
@@ -89,6 +100,7 @@ let pokemonRepository = (function () {
   };
 })();
 
+// Initialize the Pokémon grid
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
